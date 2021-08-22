@@ -8,7 +8,8 @@ function App() {
 
     function getEntries() {
         axios.get("/entries")
-        .then(res => setEntries(res.data))
+        // .then(res => setEntries(res.data))
+        .then(res => console.log(res.data))
         .catch(err => console.log(err.response.data.errMsg))
     }
 
@@ -17,6 +18,7 @@ function App() {
             .then(res => {
                 setEntries(prevEntries => [...prevEntries, res.data])
             })
+            // .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
 
@@ -30,7 +32,7 @@ function App() {
 
     function editEntry(updates, entryId) {
         axios.put(`/entries/${entryId}`, updates)
-            .them(res => {
+            .then(res => {
                 setEntries(prevEntries => prevEntries.map(entry => entry._id !== entry.Id ? entry : res.data))
             })
             .catch(err => console.log(err))

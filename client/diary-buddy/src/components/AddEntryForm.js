@@ -25,13 +25,13 @@ function AddEntryForm(props) {
 
     return (
         <form onSubmit={handleSubmit} className='new-entry-form'>
-            <div class='nativeDatePicker'>
+            <div className='nativeDatePicker'>
                 <label for='date'>Date this entry:</label>
                 <input type='date' id='date' name='date' />
-                <span class='validity'></span>
+                <span className='validity'></span>
             </div>
-            <p class='fallbackLabel'>Date this entry:</p>
-            <div class='fallbackDatePicker'>
+            <p className='fallbackLabel'>Date this entry:</p>
+            <div className='fallbackDatePicker'>
                 <span>
                     <label for='day'>Day:</label>
                     <select id='day' name='day'></select>
