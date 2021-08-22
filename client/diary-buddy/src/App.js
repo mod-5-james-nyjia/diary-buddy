@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios"
-import AddEntryForm from './components/AddEntryForm'
+import Entry from "./components/Entry"
+import AddEntryForm from "./components/AddEntryForm"
 
 function App() {
-    // diary entries from users
     const [entries, setEntries] = useState([])
 
-    useEffect(() => {
-        getEntries()
-    }, [])
-
-    // get all entries
     function getEntries() {
         axios.get("/entries")
         .then(res => setEntries(res.data))
@@ -18,15 +13,39 @@ function App() {
         .catch(err => console.log(err.response.data.errMsg))
     }
 
+    function postEntry(newEntry) {
+        axios.post("/entries", newEntry)
+            .then(res => {
+                setEntries(prevEntries => [...prevEntries, res.data])
+            })
+            .catch(err => console.log(err))
+    }
+
+    function deleteEntry(entryId) {
+        axios.delete(`/entries/${entryId}`)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getEntries()
+    }, [])
+
     return (
-        <div>
+        <div className="entry-container">
             {/* Add blank entry form */}
-            <div>
-                <AddEntryForm 
-                    submit={}
-                    btnText='Submit Entry'
+            <AddEntryForm 
+                postEntry={postEntry}
+                submit={}
+                btnText='Submit Entry'
+            />
+            {entries.map(entry => 
+                <Entry 
+                    {...entry} 
+                    key={entry.title}
+                    deleteEntry={deleteEntry}
                 />
-            </div>
+            )}   
         </div>
     )
 }
