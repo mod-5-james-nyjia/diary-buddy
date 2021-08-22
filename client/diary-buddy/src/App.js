@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios"
+import AddEntryForm from './components/AddEntryForm'
 
 function App() {
     // diary entries from users
@@ -12,14 +13,20 @@ function App() {
     // get all entries
     function getEntries() {
         axios.get("/entries")
-        .then(res => console.log(res))
+        .then(res => setEntries(res.data))
         // .then(res => setEntries(res.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))
     }
 
     return (
         <div>
-            
+            {/* Add blank entry form */}
+            <div>
+                <AddEntryForm 
+                    submit={}
+                    btnText='Submit Entry'
+                />
+            </div>
         </div>
     )
 }
