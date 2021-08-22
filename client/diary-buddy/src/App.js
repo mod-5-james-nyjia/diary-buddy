@@ -9,7 +9,6 @@ function App() {
     function getEntries() {
         axios.get("/entries")
         .then(res => setEntries(res.data))
-        // .then(res => setEntries(res.data))
         .catch(err => console.log(err.response.data.errMsg))
     }
 
@@ -23,7 +22,17 @@ function App() {
 
     function deleteEntry(entryId) {
         axios.delete(`/entries/${entryId}`)
-            .then(res => console.log(res))
+            .then(res => {
+                setEntries(prevEntries => prevEntries.filter(entry => entry.id !== entryId))
+            })
+            .catch(err => console.log(err))
+    }
+
+    function editEntry(updates, entryId) {
+        axios.put(`/entries/${entryId}`, updates)
+            .them(res => {
+                setEntries(prevEntries => prevEntries.map(entry => entry._id !== entry.Id ? entry : res.data))
+            })
             .catch(err => console.log(err))
     }
 
@@ -35,8 +44,7 @@ function App() {
         <div className="entry-container">
             {/* Add blank entry form */}
             <AddEntryForm 
-                postEntry={postEntry}
-                submit={}
+                submit={postEntry}
                 btnText='Submit Entry'
             />
             {entries.map(entry => 
@@ -44,6 +52,7 @@ function App() {
                     {...entry} 
                     key={entry.title}
                     deleteEntry={deleteEntry}
+                    editEntry={editEntry}
                 />
             )}   
         </div>
