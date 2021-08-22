@@ -8,9 +8,9 @@ function App() {
 
     function getEntries() {
         axios.get("/entries")
-        .then(res => console.log(res))
+        .then(res => setEntries(res.data))
         // .then(res => setEntries(res.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))
     }
 
     function postEntry(newEntry) {
@@ -33,8 +33,11 @@ function App() {
 
     return (
         <div className="entry-container">
+            {/* Add blank entry form */}
             <AddEntryForm 
                 postEntry={postEntry}
+                submit={}
+                btnText='Submit Entry'
             />
             {entries.map(entry => 
                 <Entry 
