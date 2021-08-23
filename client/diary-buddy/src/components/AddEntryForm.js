@@ -22,7 +22,7 @@ function AddEntryForm(props) {
         props.submit(inputs, props._id)
         setInputs(initInputs)
     }
-
+    
     return (
         <form onSubmit={handleSubmit} className='new-entry-form'>
             <div className='nativeDatePicker'>
@@ -39,7 +39,7 @@ function AddEntryForm(props) {
                 <span>
                     <label for='month'>Month:</label>
                     <select id='month' name='month'>
-                        <option selected>January</option>
+                        <option>January</option>
                         <option>February</option>
                         <option>March</option>
                         <option>April</option>
