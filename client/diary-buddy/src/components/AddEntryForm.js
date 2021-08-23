@@ -23,7 +23,7 @@ function AddEntryForm(props) {
         props.submit(inputs, props._id)
         setInputs(initInputs)
     }
-
+    
     return (
         <>
             <Navbar />

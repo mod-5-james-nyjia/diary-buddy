@@ -15,6 +15,7 @@ function App() {
             .then(res => {
                 setEntries(prevEntries => [...prevEntries, res.data])
             })
+            // .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
 
