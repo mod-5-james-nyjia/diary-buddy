@@ -1,17 +1,14 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
+import { Switch, Route } from "react-router-dom"
 import axios from "axios"
-import Entry from "./components/Entry"
+import Home from "./components/Home"
+import FilteredEntries from "./components/FilteredEntries"
 import AddEntryForm from "./components/AddEntryForm"
+import UserEntries from "./components/UserEntries"
+import Templates from "./components/Templates"
 
 function App() {
     const [entries, setEntries] = useState([])
-
-    function getEntries() {
-        axios.get("/entries")
-        // .then(res => setEntries(res.data))
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err.response.data.errMsg))
-    }
 
     function postEntry(newEntry) {
         axios.post("/entries", newEntry)
@@ -38,26 +35,17 @@ function App() {
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        getEntries()
-    }, [])
-
     return (
-        <div className="entry-container">
-            {/* Add blank entry form */}
-            <AddEntryForm 
-                submit={postEntry}
-                btnText='Submit Entry'
-            />
-            {entries.map(entry => 
-                <Entry 
-                    {...entry} 
-                    key={entry.title}
-                    deleteEntry={deleteEntry}
-                    editEntry={editEntry}
-                />
-            )}   
-        </div>
+        <>
+            <Switch>
+                <Route exact path='/'><Home /></Route>
+                <Route exact path='/templates'><Templates /></Route>
+                <Route exact path='/user-entries'><UserEntries /></Route>
+                <Route exact path='/search'><FilteredEntries /></Route>
+                <Route exact path='/new-entry'><AddEntryForm /></Route>
+            </Switch>
+            
+        </>
     )
 }
 
