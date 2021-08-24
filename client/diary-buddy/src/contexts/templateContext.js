@@ -30,20 +30,20 @@ function TemplateContextProvider(props) {
         )
     }
 
-    const templateInputs = 
-    {
-        positive: props.positive || '',
-        negative: props.negative || '',
-        mood: props.mood || ''
-    }
+    // const templateInputs = 
+    // {
+    //     positive: props.positive || '',
+    //     negative: props.negative || '',
+    //     mood: props.mood || ''
+    // }
 
-    const [inputs, setInputs] = useState(templateInputs)
+    // const [inputs, setInputs] = useState(templateInputs)
 
-     function handleChange(e) {
-        const { name, value } = e.target
-        setInputs(prevInputs => ({...prevInputs, [name]: value}))
-        console.log("inputs", inputs)
-    }
+    //  function handleChange(e) {
+    //     const { name, value } = e.target
+    //     setInputs(prevInputs => ({...prevInputs, [name]: value}))
+    //     console.log("inputs", inputs)
+    // }
 
     return (
 
@@ -52,7 +52,7 @@ function TemplateContextProvider(props) {
            printDay,
            dailyAffirmation,
            dailyPrompt,
-           handleChange
+        //    handleChange
         }}>{props.children}
         </TemplateContext.Provider>
         
