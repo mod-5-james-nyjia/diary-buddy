@@ -13,9 +13,15 @@ function TemplateContextProvider(props) {
         history.goBack()
     }
 
-    function randomAffirmation() {
-        return affirmations[Math.floor(Math.random() * affirmations.length)];
-        
+    function dailyAffirmation() {
+        // new Date() is a date constructor that gives you the month, day, year, hours, seconds, and milliseconds
+        // The getDate() method returns the day of the month for the specified date according to local time.
+        const dateForToday = new Date();
+        const day = dateForToday.getDate();
+
+        return affirmations.map(message => 
+            message.date === day ? message.affirmation : null 
+        )
     }
 
     const templateInputs = 
@@ -38,7 +44,7 @@ function TemplateContextProvider(props) {
         <TemplateContext.Provider value={{
            goBack,
            printDay,
-           randomAffirmation,
+           dailyAffirmation,
            handleChange
         }}>{props.children}
         </TemplateContext.Provider>

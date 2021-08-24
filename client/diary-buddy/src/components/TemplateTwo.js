@@ -3,7 +3,7 @@ import {TemplateContext} from "../contexts/templateContext"
 import Navbar from "./Navbar"
 
 function TemplateTwo() {
-    const {goBack, printDay, randomAffirmation, handleChange} = useContext(TemplateContext)
+    const {goBack, printDay, dailyAffirmation, handleChange} = useContext(TemplateContext)
     
  
     return(
@@ -11,7 +11,7 @@ function TemplateTwo() {
             <Navbar />
             <h2>Today is {printDay}</h2>
             <h3>Random Affirmations:</h3> 
-                <p>{randomAffirmation()}</p>
+                <p>{dailyAffirmation()}</p>
             <h3>Mood Tracking:</h3>
                 <select
                     type='text'

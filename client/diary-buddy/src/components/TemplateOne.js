@@ -3,7 +3,7 @@ import {TemplateContext} from "../contexts/templateContext"
 import Navbar from "./Navbar"
 
 function TemplateOne() {
-    const {goBack, printDay, randomAffirmation, handleChange} = useContext(TemplateContext)
+    const {goBack, printDay, dailyAffirmation, handleChange} = useContext(TemplateContext)
     
  
     return(
@@ -11,7 +11,7 @@ function TemplateOne() {
             <Navbar />
             <h2>Today is {printDay}</h2>
             <h3>Random Affirmations:</h3> 
-                <p>{randomAffirmation()}</p>
+                <p>{dailyAffirmation()}</p>
             <h3>Mood Tracking:</h3>
                 <select
                     type='text'
@@ -28,6 +28,16 @@ function TemplateOne() {
                     <option value='awful'>😢awful</option>
                 </select>
             <br/>
+            <h3>Journal Prompt:</h3>
+                <p>Hello</p>
+                <textarea 
+                    type='text'
+                    name='prompt'
+                    className='journal-prompt'
+                    // value={inputs.postitive}
+                    // onChange={handleChange}
+                    placeholder='Tell me something positive that happened today...'
+                />
             <h3>Positives:</h3>
             <textarea 
                 type='text'
