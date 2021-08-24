@@ -1,6 +1,7 @@
 import React, {createContext, useState} from "react"
 import {useHistory} from "react-router-dom"
 import affirmations from "../components/affirmationData.js"
+import journalPrompts from "../components/promptsData.js"
 
 const TemplateContext = createContext()
 
@@ -8,6 +9,8 @@ function TemplateContextProvider(props) {
     const history = useHistory()
     const day = {weekday: 'long'};
     const printDay = new Date().toLocaleTimeString('en-us', day);
+    const dateForToday = new Date();
+    const dayOfMonth = dateForToday.getDate();
 
     function goBack() {
         history.goBack()
@@ -16,11 +19,14 @@ function TemplateContextProvider(props) {
     function dailyAffirmation() {
         // new Date() is a date constructor that gives you the month, day, year, hours, seconds, and milliseconds
         // The getDate() method returns the day of the month for the specified date according to local time.
-        const dateForToday = new Date();
-        const day = dateForToday.getDate();
-
         return affirmations.map(message => 
-            message.date === day ? message.affirmation : null 
+            message.date === dayOfMonth ? message.affirmation : null 
+        )
+    }
+
+    function dailyPrompt() {
+        return journalPrompts.map(journal => 
+            journal.date === dayOfMonth ? journal.prompts : null 
         )
     }
 
@@ -45,6 +51,7 @@ function TemplateContextProvider(props) {
            goBack,
            printDay,
            dailyAffirmation,
+           dailyPrompt,
            handleChange
         }}>{props.children}
         </TemplateContext.Provider>
