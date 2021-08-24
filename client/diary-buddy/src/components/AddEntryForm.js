@@ -76,11 +76,11 @@ function AddEntryForm(props) {
                     onChange={handleChange}
                     placeholder='Mood'
                 >
-                    <option value='rad'>:smile: rad</option>
-                    <option value='good'>:slightly_smiling_face: good</option>
-                    <option value='meh'>:neutral_face: meh</option>
-                    <option value='bad'>:frowning_face: bad</option>
-                    <option value='awful'>:cry: awful</option>
+                    <option value='rad'>😀rad</option>
+                    <option value='good'>🙂good</option>
+                    <option value='meh'>😐meh</option>
+                    <option value='bad'>🙁bad</option>
+                    <option value='awful'>😢awful</option>
                 </select><br />
                 <button className='submit-btn'>Submit Entry</button>
             </form>
