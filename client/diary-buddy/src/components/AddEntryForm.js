@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from "./Navbar"
+import { useEntries } from '../contexts/userEntryContext.js'
 import '../styles.css'
 
 function AddEntryForm(props) {
@@ -12,17 +13,20 @@ function AddEntryForm(props) {
             mood: props.mood || ''
         }
     const [inputs, setInputs] = useState(initInputs)
+    const { postEntry } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
         setInputs(prevInputs => ({...prevInputs, [name]: value}))
+        console.log("inputs", inputs)
     }
 
     function handleSubmit(e) {
         e.preventDefault()
-        props.submit(inputs, props._id)
+        postEntry(inputs)
         setInputs(initInputs)
     }
+    
     
     return (
         <>
@@ -30,7 +34,12 @@ function AddEntryForm(props) {
             <form onSubmit={handleSubmit} className='new-entry-form'>
                 <div class='nativeDatePicker'>
                     <label for='date'>Date this entry:</label>
-                    <input type='date' id='date' name='date' />
+                    <input 
+                        type='date' 
+                        id='date' 
+                        name='date' 
+                        onChange={handleChange}
+                    />
                     <span class='validity'></span>
                 </div>
                 <input 
@@ -67,11 +76,11 @@ function AddEntryForm(props) {
                     onChange={handleChange}
                     placeholder='Mood'
                 >
-                    <option value='rad'>rad</option>
-                    <option value='good'>good</option>
-                    <option value='meh'>meh</option>
-                    <option value='bad'>bad</option>
-                    <option value='awful'>awful</option>
+                    <option value='rad'>:smile: rad</option>
+                    <option value='good'>:slightly_smiling_face: good</option>
+                    <option value='meh'>:neutral_face: meh</option>
+                    <option value='bad'>:frowning_face: bad</option>
+                    <option value='awful'>:cry: awful</option>
                 </select><br />
                 <button className='submit-btn'>Submit Entry</button>
             </form>
