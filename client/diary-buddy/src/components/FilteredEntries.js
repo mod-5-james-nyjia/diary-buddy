@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
-import { EntriesContext } from "../contexts/userEntryContext"
+import { useEntries } from "../contexts/userEntryContext"
 import Navbar from "../components/Navbar"
 import "../styles.css"
 
 function FilteredEntries() {
-    const {searchResults} = useContext(EntriesContext)
+    const {searchResults} = useEntries()
 
     return (
         <>

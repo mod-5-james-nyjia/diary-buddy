@@ -1,12 +1,12 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import FilteredEntries from "./FilteredEntries"
-import { EntriesContext } from "../contexts/userEntryContext"
+import { useEntries } from "../contexts/userEntryContext"
 import "../styles.css"
 
 function Home() {
-    const {filterEntries, search, setSearch} = useContext(EntriesContext)
+    const {filterEntries, search, setSearch} = useEntries()
 
     return (
         <>

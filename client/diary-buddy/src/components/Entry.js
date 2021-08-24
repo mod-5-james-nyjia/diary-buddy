@@ -1,8 +1,10 @@
 import React, {useState} from "react"
 import AddEntryForm from "./AddEntryForm"
+import { useEntries } from "../contexts/userEntryContext"
 
 function Entry(props) {
     const {date, location, entry, image, mood, _id} = props
+    const {deleteEntry} = useEntries()
     const [editToggle, setEditToggle] = useState(false)
 
     function toggle(){
@@ -16,7 +18,8 @@ function Entry(props) {
             <p>Entry: {entry}</p>
             <p>Image: {image}</p>
             <p>Mood: {mood}</p>
-            <button className="delete-btn" onClick={() => props.deleteEntry(_id)}>
+            {/* <button className="delete-btn" onClick={() => props.deleteEntry(_id)}> */}
+            <button className="delete-btn" onClick={() => deleteEntry()}>              
                 Delete
             </button> 
             <button className="edit-btn" onClick={() => toggle()}>
