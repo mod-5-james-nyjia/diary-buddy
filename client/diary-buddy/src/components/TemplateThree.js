@@ -36,7 +36,7 @@ function TemplateThree() {
                     className='journal-prompt'
                     // value={inputs.postitive}
                     // onChange={handleChange}
-                    placeholder='Type response to journal prompt here...'
+                    placeholder='Type a response to the journal prompt here...'
                 />
             <h3>Positives:</h3>
             <textarea 
