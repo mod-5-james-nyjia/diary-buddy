@@ -10,7 +10,7 @@ function UserEntries() {
     return (
         <>
             <Navbar />
-            <div>{allEntries}</div>
+            <div className='content'>{allEntries}</div>
         </>
     )
 }

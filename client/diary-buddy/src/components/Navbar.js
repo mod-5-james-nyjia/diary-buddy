@@ -9,12 +9,14 @@ function Navbar() {
 
     return (
         <header>
+            <h1 class='logo'>Logo</h1>
             <input type='checkbox' className='nav-toggle' id='nav-toggle'></input>
             <nav>
                 <ul className='nav-ul'>
-                    <li>
-                        <form className='form-search-bar text-center'>
+                    <li className='form-search-bar'>
+                        <form className='text-center'>
                             <input
+                                className='search-bar'
                                 type='text'
                                 placeholder='Search your entries'
                                 value={search}
