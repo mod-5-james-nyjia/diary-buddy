@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import UserEntries from "./UserEntries"
 import { EntriesContext } from "../contexts/userEntryContext"
-
 import "../styles.css"
 
 function Navbar() {

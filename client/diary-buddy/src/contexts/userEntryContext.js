@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react"
+import React, { useEffect, useState, createContext, useContext } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import Entry from "../components/Entry"
@@ -22,6 +22,8 @@ function EntriesContextProvider(props) {
     }, [])
 
     function postEntry(newEntry) {
+        console.log("new entry", newEntry)
+
         axios.post("/entries", newEntry)
             .then(res => {
                 setEntries(prevEntries => [...prevEntries, res.data])
@@ -30,9 +32,11 @@ function EntriesContextProvider(props) {
     }
 
     function deleteEntry(entryId) {
+        console.log("entryId", entryId)
         axios.delete(`/entries/${entryId}`)
             .then(res => {
-                setEntries(prevEntries => prevEntries.filter(entry => entry.id !== entryId))
+                // setEntries(prevEntries => prevEntries.filter(entry => entry.id !== entryId))
+                console.log("data", res.data)
             })
             .catch(err => console.log(err))
     }
@@ -78,11 +82,19 @@ function EntriesContextProvider(props) {
             search,
             setSearch,
             searchData,
-            setSearchData
+            setSearchData,
+            editEntry,
+            postEntry,
+            deleteEntry
         }}>{props.children}
         </EntriesContext.Provider>
     )
 }
 
+const useEntries = () => {
+    const context = useContext(EntriesContext)
+    if (!context) throw new Error("You must use Provider to consume Context");
+    return context
+}
 
-export { EntriesContextProvider, EntriesContext }
+export { EntriesContextProvider, useEntries }
