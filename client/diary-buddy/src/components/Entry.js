@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import AddEntryForm from "./AddEntryForm"
+import "../styles.css"
 import { useEntries } from "../contexts/userEntryContext"
 
 function Entry(props) {
@@ -13,8 +14,8 @@ function Entry(props) {
     
     return(
         <div className="entry">
-            <p>Date: {date}</p>
-            <p>Location: {location}</p>
+            <p><b>Date:</b> {date}</p>
+            <p><b>Location:</b> {location}</p>
             <p>Entry: {entry}</p>
             <p>Image: {image}</p>
             <p>Mood: {mood}</p>

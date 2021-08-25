@@ -97,4 +97,4 @@ const useEntries = () => {
     return context
 }
 
-export { EntriesContextProvider, useEntries }
+export { EntriesContextProvider, useEntries, EntriesContext }

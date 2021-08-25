@@ -1,6 +1,8 @@
 import React from "react"
 import Entry from "./Entry"
 import Navbar from "./Navbar"
+import { EntriesContext } from "../contexts/userEntryContext"
+import "../styles.css"
 import { useEntries } from "../contexts/userEntryContext"
 
 function UserEntries() {
@@ -8,7 +10,7 @@ function UserEntries() {
     return (
         <>
             <Navbar />
-            <div>{allEntries}</div>
+            <div className='content'>{allEntries}</div>
         </>
     )
 }

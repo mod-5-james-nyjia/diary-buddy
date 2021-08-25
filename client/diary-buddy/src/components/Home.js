@@ -11,33 +11,22 @@ function Home() {
     return (
         <>
             <Navbar />
-            <div>
-                <h2>Hello</h2>
-                <h3>Ready to write down some thoughts?</h3>
-                <form>
-                    <h4>Scratch pad</h4>
-                    <input
-                        type='text'
+            <div className='content'>
+                <h2 className='content-h2'>Hello</h2>
+                <h3 className='content-h3'>Ready to write down some thoughts?</h3>
+                <hr />
+                <form className='scratch-pad-form'>
+                    <h4 className='content-h4'>Scratch pad</h4>
+                    <textarea
+                        className='scratch-pad'
+                        rows='10'
+                        cols='10'
+                        name='text'
+                        wrap='soft'
                         placeholder='Start typing...'
-                    ></input>
+                    ></textarea>
                 </form>
-                <form>
-                    <input
-                        type='text'
-                        placeholder='Search your entries'
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    ></input>
-                    <button
-                        type='submit'
-                        value='Search'
-                        onClick={(e) => {
-                            e.preventDefault()
-                            filterEntries()
-                        }}
-                    ><Link to='/search'>Search</Link>
-                    </button>
-                </form>
+                
             </div>
         </>
     )
