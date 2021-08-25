@@ -11,9 +11,9 @@ function Home() {
     return (
         <>
             <Navbar />
-            <div>
-                <h2>Hello</h2>
-                <h3>Ready to write down some thoughts?</h3>
+            <div className='content'>
+                <h2 className='text-left'>Hello</h2>
+                <h3 className='text-left'>Ready to write down some thoughts?</h3>
                 <form>
                     <h4>Scratch pad</h4>
                     <input
@@ -21,23 +21,7 @@ function Home() {
                         placeholder='Start typing...'
                     ></input>
                 </form>
-                <form>
-                    <input
-                        type='text'
-                        placeholder='Search your entries'
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    ></input>
-                    <button
-                        type='submit'
-                        value='Search'
-                        onClick={(e) => {
-                            e.preventDefault()
-                            filterEntries()
-                        }}
-                    ><Link to='/search'>Search</Link>
-                    </button>
-                </form>
+                
             </div>
         </>
     )

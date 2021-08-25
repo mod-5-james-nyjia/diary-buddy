@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import AddEntryForm from "./AddEntryForm"
+import "../styles.css"
 
 function Entry(props) {
     const {date, location, entry, image, mood, _id} = props
