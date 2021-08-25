@@ -3,14 +3,14 @@ import {TemplateContext} from "../contexts/templateContext"
 import Navbar from "./Navbar"
 
 function TemplateTwo() {
-    const {goBack, printDay, dailyAffirmation, handleChange} = useContext(TemplateContext)
+    const {goBack, printDay, dailyAffirmation, dailyPrompt, handleChange} = useContext(TemplateContext)
     
  
     return(
         <div>
             <Navbar />
             <h2>Today is {printDay}</h2>
-            <h3>Random Affirmations:</h3> 
+            <h3>Affirmation for Today:</h3> 
                 <p>{dailyAffirmation()}</p>
             <h3>Mood Tracking:</h3>
                 <select
@@ -28,6 +28,16 @@ function TemplateTwo() {
                     <option value='awful'>😢awful</option>
                 </select>
             <br/>
+            <h3>Journal Prompt:</h3>
+                <p>{dailyPrompt()}</p>
+                <textarea 
+                    type='text'
+                    name='prompt'
+                    className='journal-prompt'
+                    // value={inputs.postitive}
+                    // onChange={handleChange}
+                    placeholder='Type a response to the journal prompt here...'
+                />
             <h3>Positives:</h3>
             <textarea 
                 type='text'
