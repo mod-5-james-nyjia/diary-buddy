@@ -11,10 +11,18 @@ const entrySchema = new Schema({
     location: String,
     entry: {
         type: String,
-        required: true
+        // required: true
     },
+    
+    prompt: {
+        type: String,
+        default: "String"
+    },
+    
     image: String,
-    mood: String
+    mood: String,
+    positive: String,
+    negative: String,
 })
 
 module.exports = mongoose.model('Entry', entrySchema)

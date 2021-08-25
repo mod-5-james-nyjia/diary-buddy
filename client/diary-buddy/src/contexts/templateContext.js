@@ -2,13 +2,12 @@ import React, {createContext, useState} from "react"
 import {useHistory} from "react-router-dom"
 import affirmations from "../components/affirmationData.js"
 import journalPrompts from "../components/promptsData.js"
+// import { useEntries } from "../contexts/userEntryContext"
 
 const TemplateContext = createContext()
 
 function TemplateContextProvider(props) {
     const history = useHistory()
-    const day = {weekday: 'long'};
-    const printDay = new Date().toLocaleTimeString('en-us', day);
     const dateForToday = new Date();
     const dayOfMonth = dateForToday.getDate();
 
@@ -29,30 +28,17 @@ function TemplateContextProvider(props) {
             journal.date === dayOfMonth ? journal.prompts : null 
         )
     }
-
-    // const templateInputs = 
-    // {
-    //     positive: props.positive || '',
-    //     negative: props.negative || '',
-    //     mood: props.mood || ''
-    // }
-
-    // const [inputs, setInputs] = useState(templateInputs)
-
-    //  function handleChange(e) {
-    //     const { name, value } = e.target
-    //     setInputs(prevInputs => ({...prevInputs, [name]: value}))
-    //     console.log("inputs", inputs)
-    // }
-
+    
     return (
 
         <TemplateContext.Provider value={{
-           goBack,
-           printDay,
-           dailyAffirmation,
-           dailyPrompt,
-        //    handleChange
+            // handleSubmit,
+            // handleChange,
+            // promptInputs,
+            goBack,
+            dailyAffirmation,
+            dailyPrompt,
+        
         }}>{props.children}
         </TemplateContext.Provider>
         

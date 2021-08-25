@@ -10,7 +10,7 @@ function AddEntryForm(props) {
             location: props.location || '',
             entry: props.entry || '',
             image: props.image || '',
-            mood: props.mood || ''
+            mood: props.mood || '',
         }
     const [inputs, setInputs] = useState(initInputs)
     const { postEntry } = useEntries()
@@ -59,14 +59,6 @@ function AddEntryForm(props) {
                         placeholder='Let me hear your thoughts...'
                         required={true}
                     />
-                    <input 
-                        type='text'
-                        name='image'
-                        className='image'
-                        value={inputs.image}
-                        onChange={handleChange}
-                        placeholder='IMG URL'
-                    />
                     <label htmlFor='mood'>Mood:</label>
                     <select
                         type='text'
@@ -76,6 +68,7 @@ function AddEntryForm(props) {
                         onChange={handleChange}
                         placeholder='Mood'
                     >
+                        <option value=''>-Select Mood-</option>
                         <option value='rad'>😀rad</option>
                         <option value='good'>🙂good</option>
                         <option value='meh'>😐meh</option>
