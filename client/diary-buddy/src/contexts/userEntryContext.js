@@ -23,7 +23,6 @@ function EntriesContextProvider(props) {
 
     function postEntry(newEntry) {
         console.log("new entry", newEntry)
-
         axios.post("/entries", newEntry)
             .then(res => {
                 setEntries(prevEntries => [...prevEntries, res.data])
