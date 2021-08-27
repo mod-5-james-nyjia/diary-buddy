@@ -11,12 +11,11 @@ function TemplateThree(props) {
     {
         prompt: props.prompt || '',
         positive: props.positive || '',
-        negative: props.negative || ''
+        negative: props.negative || '',
+        isEntry: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
     const { postEntry } = useEntries()
-
-//    As for the unrequired fields in the entries, one way to do it would be to turn the input into an array, then say "if input.length > 0 then display this field, else: null"
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -81,7 +80,7 @@ function TemplateThree(props) {
                 <h3>Journal Prompt:</h3>
                 <p>{dailyPrompt()}</p>
                 <textarea
-                    name='entry'
+                    name='prompt'
                     className='journal-prompt'
                     rows='10'
                     cols='40'
