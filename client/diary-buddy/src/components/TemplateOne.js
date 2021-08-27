@@ -11,7 +11,8 @@ function TemplateOne(props) {
     {
         prompt: props.prompt || '',
         positive: props.positive || '',
-        negative: props.negative || ''
+        negative: props.negative || '',
+        isEntry: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
     const { postEntry } = useEntries()
@@ -79,7 +80,7 @@ function TemplateOne(props) {
                 <h3>Journal Prompt:</h3>
                 <p>{dailyPrompt()}</p>
                 <textarea
-                    name='entry'
+                    name='prompt'
                     className='journal-prompt'
                     rows='10'
                     cols='40'

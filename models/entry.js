@@ -16,13 +16,17 @@ const entrySchema = new Schema({
     
     prompt: {
         type: String,
-        default: "String"
+        default: ""
     },
     
     image: String,
     mood: String,
     positive: String,
     negative: String,
+    isEntry: {
+        type: Boolean,
+        default: true
+    }
 })
 
 module.exports = mongoose.model('Entry', entrySchema)
