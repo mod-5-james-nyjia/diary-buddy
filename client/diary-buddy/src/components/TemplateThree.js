@@ -16,6 +16,8 @@ function TemplateThree(props) {
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
     const { postEntry } = useEntries()
 
+//    As for the unrequired fields in the entries, one way to do it would be to turn the input into an array, then say "if input.length > 0 then display this field, else: null"
+
     function handleChange(e) {
         const { name, value } = e.target
         setPromptInputs(prevTempInputs => ({...prevTempInputs, [name]: value}))
