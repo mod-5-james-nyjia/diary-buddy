@@ -26,7 +26,15 @@ const entrySchema = new Schema({
     isEntry: {
         type: Boolean,
         default: true
-    }
+    },
+    // isPositive: {
+    //     type: Boolean,
+    //     default: true
+    // }, 
+    // isNegative: {
+    //     type: Boolean,
+    //     default: true
+    // }
 })
 
 module.exports = mongoose.model('Entry', entrySchema)
