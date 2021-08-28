@@ -12,7 +12,9 @@ function TemplateOne(props) {
         prompt: props.prompt || '',
         positive: props.positive || '',
         negative: props.negative || '',
-        isEntry: false
+        isEntry: false,
+        // isPositive: false,
+        // isNegative: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
     const { postEntry } = useEntries()

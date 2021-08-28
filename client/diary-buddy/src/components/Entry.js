@@ -4,9 +4,11 @@ import "../styles.css"
 import { useEntries } from "../contexts/userEntryContext"
 
 function Entry(props) {
-    const {date, location, entry, isEntry, image, mood, _id, prompt, positive, negative} = props
+    const {date, location, entry, isEntry, image, mood, _id, prompt, positive, isPositive, negative, isNegative} = props
     const {deleteEntry} = useEntries()
     const [editToggle, setEditToggle] = useState(false)
+
+    // positive / negative display on the entries page and the submit button on the home page,
 
     function toggle(){
         setEditToggle(prevToggle => !prevToggle)
@@ -14,6 +16,10 @@ function Entry(props) {
     console.log(props,"props")
     console.log(prompt, "prompt")
     console.log(entry, "entry")
+    console.log(positive, "positive")
+    console.log(negative, "negative")
+    console.log(isNegative, "isNeg")
+    console.log(isPositive, "isPos")
     return(
         <div className="entry">
             <p><b>Date:</b> {date}</p>
@@ -23,7 +29,9 @@ function Entry(props) {
             <p>{!isEntry ? <>Prompt: {prompt}</> : <>Entry: {entry}</>}</p>
             <p>Positives: {positive}</p>
             <p>Negatives: {negative}</p>
-            
+            {/* <p>{isNegative ? <>Negatives: {negative}</> : <></>}</p>
+            <p>{isPositive ? <>Positives: {positive}</> : <></>}</p> */}
+        
             {/* <button className="delete-btn" onClick={() => props.deleteEntry(_id)}> */}
             <button className="delete-btn" onClick={() => deleteEntry()}>              
                 Delete
