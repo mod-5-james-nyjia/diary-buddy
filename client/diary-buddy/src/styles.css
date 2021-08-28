@@ -43,12 +43,7 @@ p {
     font-size: .6em;
 }
 
-.content-h2 {
-    color: var(--clr-primary-200);
-    text-shadow: 2px 2px var(--clr-neutral-900);
-    margin-top: 4em;
-}
-
+.content-h2,
 .content-h3,
 .content-h4,
 .new-entry-form label {
@@ -159,28 +154,44 @@ nav li {
 
 .content {
     position: relative;
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: grid;
     place-items: center;
-    grid-template-rows: 1fr 1fr 1fr;
-    background-color: rgba(6, 65, 13, 0.397);
+}
+
+.content-container {
+    background-color:rgba(6, 65, 13, 0.644);
+    width: 50%;
+    place-items: center;
+    display: grid;
+    height: auto;
+    margin-top: 94px;
+}
+
+.entries-container {
+    background-color:rgba(6, 65, 13, 0.644);
+    width: 50%;
+    height: auto;
+    display: grid;
+    place-items: center;
 }
 
 hr {
     width: 75%;
 }
 
-.content > * {
+.content-container > * {
     position: relative;
     font-size: 2rem;
 }
 
 .content::before {
-    height: 100vh;
+    height: 200vh;
     content: '';
     background-image: url('https://picsum.photos/1500/1800');
     background-size: cover;
+    background-blend-mode: multiply;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -190,7 +201,7 @@ hr {
 }
 
 .scratch-pad-form {
-    margin-bottom: 18em;
+    margin-bottom: 2em;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -246,7 +257,9 @@ hr {
 }
 
 .form-search-bar input[type=text],
-.new-entry-form input[type=text] {
+.new-entry-form input[type=text],
+.new-entry-form input[type=date],
+.new-entry-form select {
     padding: 6px;
     width: 16em;
     margin-top: 0;
@@ -271,7 +284,8 @@ hr {
 
 /* New Entry */
 .new-entry-form {
-    margin-top: 3em;
+    margin-top: 0;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: column;
 }
@@ -298,6 +312,18 @@ hr {
     text-shadow: 2px 2px var(--clr-neutral-900);
 }
 
+.templates-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.templates-list li > * {
+    color: var(--clr-primary-200);
+    text-decoration: none;
+}
 
 
 @media screen and (min-width: 800px) {
