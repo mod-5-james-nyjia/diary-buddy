@@ -27,7 +27,6 @@ function AddEntryForm(props) {
         setInputs(initInputs)
     }
     
-    
     return (
         <>
             <Navbar />

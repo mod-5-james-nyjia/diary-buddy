@@ -194,7 +194,7 @@ hr {
     background-blend-mode: multiply;
     position: absolute;
     top: 0px;
-    right: 0px;
+    /* right: 0px; */
     bottom: 0px;
     left: 0px;
     opacity: .75;
