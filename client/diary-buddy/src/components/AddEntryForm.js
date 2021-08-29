@@ -60,9 +60,10 @@ function AddEntryForm(props) {
                             placeholder='Let me hear your thoughts...'
                             required={true}
                         />
-                        <label htmlFor='mood'>Mood:</label>
+                        <label for='mood'>Mood:</label>
                         <select
                             type='text'
+                            id='mood'
                             name='mood'
                             className='mood'
                             value={inputs.mood}

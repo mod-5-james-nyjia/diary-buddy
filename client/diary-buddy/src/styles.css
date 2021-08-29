@@ -40,9 +40,12 @@ h6 {
 
 p {
     font-family: var(--ff-secondary);
-    font-size: .6em;
+    font-size: .7em;
+    color: var(--clr-primary-200);
+    background-color:rgba(6, 65, 13, 0.808);
 }
 
+.content-h1,
 .content-h2,
 .content-h3,
 .content-h4,
@@ -50,6 +53,7 @@ p {
     color: var(--clr-primary-200);
     text-shadow: 2px 2px var(--clr-neutral-900);
 }
+
 
 /* Navbar-specific things */
 header {
@@ -152,6 +156,7 @@ nav li {
     margin-top: 3em;
 }
 
+/* Non-navbar things */
 .content {
     position: relative;
     height: auto;
@@ -187,14 +192,14 @@ hr {
 }
 
 .content::before {
-    height: 200vh;
+    height: auto;
     content: '';
     background-image: url('https://picsum.photos/1500/1800');
     background-size: cover;
     background-blend-mode: multiply;
     position: absolute;
     top: 0px;
-    right: 0px;
+    /* right: 0px; */
     bottom: 0px;
     left: 0px;
     opacity: .75;
@@ -227,7 +232,6 @@ hr {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
- 
 }
 
 .text-right {
@@ -303,7 +307,8 @@ hr {
     padding: .8em;
 }
 
-.submit-btn {
+.submit-btn,
+.back-btn {
     padding: .8em;
     text-decoration: none;
     font-size: 1rem;
@@ -312,7 +317,8 @@ hr {
     text-shadow: 2px 2px var(--clr-neutral-900);
 }
 
-.templates-list {
+.templates-list,
+.search-results {
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -320,11 +326,18 @@ hr {
     padding-left: 0;
 }
 
-.templates-list li > * {
+.templates-list li > *,
+.search-results li > * {
     color: var(--clr-primary-200);
     text-decoration: none;
 }
 
+.template-image {
+    height: auto;
+    width: 400px;
+    padding: 20px;
+    background-color:rgba(6, 65, 13, 0.644);
+}
 
 @media screen and (min-width: 800px) {
     .nav-toggle-label {

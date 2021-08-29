@@ -13,6 +13,22 @@ entryRouter.get('/', (req, res, next) => {
     })
 })
 
+
+// Get entries by search term //
+entryRouter.get('/search', (req, res, next) => {
+    const { entry } = req.query
+    const pattern = new RegExp(entry)
+    Entry.find(
+        { entry: { $regex: pattern, $options: 'i' } }, 
+        (err, entries) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(entries)
+    })
+})
+
 // Post One //
 entryRouter.post('/', (req, res, next) => {
     const newEntry = new Entry(req.body)
