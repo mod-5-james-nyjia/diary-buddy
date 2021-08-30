@@ -37,7 +37,7 @@ function Home(props) {
                     <h2 className='content-h2'>Hello</h2>
                     <h3 className='content-h3'>Ready to write down some thoughts?</h3>
                     <hr />
-                    <form className='scratch-pad-form'>
+                    <form onSubmit={handleSubmit} className='scratch-pad-form'>
                         <h4 className='content-h4'>Scratch pad</h4>
                         <textarea
                             className='scratch-pad'
@@ -45,8 +45,10 @@ function Home(props) {
                             cols='10'
                             name='text'
                             wrap='soft'
+                            onChange={handleChange}
                             placeholder='Start typing...'
                         ></textarea>
+                        <button>Submit</button>
                     </form>
                 </div>
             </div>
