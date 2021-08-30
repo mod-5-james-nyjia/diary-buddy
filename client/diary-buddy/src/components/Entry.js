@@ -18,29 +18,22 @@ function Entry(props) {
     // console.log(entry, "entry")
     console.log(positive, "positive")
     console.log(negative, "negative")
+    console.log(date)
+    console.log(mood)
     
     return(
         <div className="entry">
-            <p><b>Date:</b> {date}</p>
+            <p>{date === null ? <>{null}</> : <><b>Date:</b> {date}</> }</p>
             {/* date is a string */}
-            <p><b>Location:</b> {location}</p>
-            <img src={image} className='entry-image'></img>
-            <p><b>Mood: </b> {mood}</p>
-            <p>{!isEntry ? <>Prompt: {prompt}</> : <><b>Entry:</b> {entry}</>}</p>
-            <p><b>Positives:</b> {positive}</p>
-            <p><b>Negatives:</b> {negative}</p>
-            {/* <p>{isNegative ? <>Negatives: {negative}</> : <></>}</p>
-            <p>{isPositive ? <>Positives: {positive}</> : <></>}</p> */}
-            {/* <p>{location === "" ? <></> : <><b>Location:</b> {location}</>}</p> */}
+            <p>{{location}.length > 0 ? <><b>Location:</b> {location}</> : <>{null}</>}</p>
             {/* location is a string and is false*/}
-            {/* <p>{!isImage ? <>Image: {image}</> : null}</p> */}
-            {/* <p>{mood === "" ? null : <>Mood: {mood}</>}</p> */}
-            
-            <p>{!isEntry ? <>Prompt: {prompt} </> : <>Entry: {entry}</>}</p>
-            <p>{negative === "" ? null : <>Negatives: {negative}</>}</p>
-            <p>{positive === "" ? null : <>Positives: {positive}</>}</p>
+            <div>{image === '' ? <>{null}</> : <img src={image} className='entry-image'></img>}</div>
+            <p>{mood === '' ? null : mood === undefined ? null : <><b>Mood</b>: {mood}</> }</p>
+            <p>{!isEntry ? <>Prompt: {prompt}</> : <><b>Entry:</b> {entry}</>}</p>
+            <p>{{positive}.length > 0 ? <><b>Positives</b>: {positive}</> : <>{null}</>}</p>
+            <p>{{negative}.length > 0 ? <><b>Negatives</b>: {negative}</> : <>{null}</>}</p>            
 
-            <p>{text === "" ? null : <>Text: {text}</>}</p>
+            {/* <p>{text === "" ? null : <>Text: {text}</>}</p> */}
         
             {/* <button className="delete-btn" onClick={() => props.deleteEntry(_id)}> */}
             <button className="delete-btn" onClick={() => deleteEntry(_id)}>              
@@ -49,6 +42,7 @@ function Entry(props) {
             <button className="edit-btn" onClick={() => toggle()}>
                 Edit
             </button>
+            <hr/>
 
             {editToggle === true ?
                 <>

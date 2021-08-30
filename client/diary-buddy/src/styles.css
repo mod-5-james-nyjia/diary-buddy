@@ -89,7 +89,8 @@ nav li {
 }
 
 .nav-link,
-.search-button {
+.search-button,
+.sp-submit-btn {
     color: var(--clr-neutral-900);
     text-decoration: none;
     font-size: 1.2rem;
@@ -98,9 +99,17 @@ nav li {
     transition: opacity 150ms ease-in-out;
 }
 
+.sp-submit-btn {
+    color: var(--clr-)
+}
+
 .nav-link:hover,
 .search-button:hover {
     color: #000;
+}
+
+.sp-submit-btn:hover {
+    color: var(--clr-neutral-100);
 }
 
 .nav-toggle {
@@ -154,6 +163,7 @@ nav li {
 .entry {
     color: var(--clr-primary-200);
     margin-top: 3em;
+    min-width: 700px;
 }
 
 .entry > p b {
@@ -282,7 +292,17 @@ hr {
     box-shadow: 2px 2px 2px 1px var(--clr-neutral-900);
 }
 
-.search-button > * {
+.sp-submit-btn {
+    background: var(--background);
+    color: var(--clr-primary-200);
+    box-shadow: 2px 2px 2px 1px var(--clr-neutral-900);
+    padding-left: .8em;
+    padding-right: .8em;
+    text-shadow: 2px 2px var(--clr-neutral-900);
+}
+
+.search-button > *,
+.sp-submit-btn > * {
     padding: .8em;
     text-decoration: none;
     font-size: 1rem;
@@ -392,7 +412,8 @@ hr {
     }
 
     .nav-link,
-    .search-button {
+    .search-button,
+    .sp-submit-btn {
         opacity: 1;
         position: relative;
     }

@@ -11,7 +11,7 @@ const entrySchema = new Schema({
     location: String,
     entry: {
         type: String,
-        // required: true
+        required: true
     },
     prompt: {
         type: String,

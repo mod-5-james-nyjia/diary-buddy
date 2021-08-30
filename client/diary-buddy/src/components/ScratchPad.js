@@ -36,7 +36,7 @@ function ScratchPad(props) {
                 onChange={handleChange}
                 placeholder='Start typing...'
             ></textarea>
-            <button>Submit</button>
+            <button className='sp-submit-btn'>Submit</button>
         </form>
         </>
     )
