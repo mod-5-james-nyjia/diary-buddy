@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
+import ScratchPad from "./ScratchPad"
 import FilteredEntries from "./FilteredEntries"
 import { useEntries } from "../contexts/userEntryContext.js"
 import "../styles.css"
@@ -11,7 +12,6 @@ function Home(props) {
     const initHomeInputs = 
         {
             text: props.text || ''
-
         }
 
     const [homeInputs, setHomeInputs] = useState(initHomeInputs)
@@ -38,19 +38,7 @@ function Home(props) {
                     <h2 className='content-h2'>Hello</h2>
                     <h3 className='content-h3'>Ready to write down some thoughts?</h3>
                     <hr />
-                    <form onSubmit={handleSubmit} className='scratch-pad-form'>
-                        <h4 className='content-h4'>Scratch pad</h4>
-                        <textarea
-                            className='scratch-pad'
-                            rows='10'
-                            cols='10'
-                            name='text'
-                            wrap='soft'
-                            onChange={handleChange}
-                            placeholder='Start typing...'
-                        ></textarea>
-                        <button>Submit</button>
-                    </form>
+                    <ScratchPad />
                 </div>
             </div>
         </>
