@@ -43,7 +43,7 @@ function Entry(props) {
             <p>{text === "" ? null : <>Text: {text}</>}</p>
         
             {/* <button className="delete-btn" onClick={() => props.deleteEntry(_id)}> */}
-            <button className="delete-btn" onClick={() => deleteEntry()}>              
+            <button className="delete-btn" onClick={() => deleteEntry(_id)}>              
                 Delete
             </button> 
             <button className="edit-btn" onClick={() => toggle()}>

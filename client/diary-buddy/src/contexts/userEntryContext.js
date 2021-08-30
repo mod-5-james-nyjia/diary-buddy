@@ -36,11 +36,11 @@ function EntriesContextProvider(props) {
     }
 
     function deleteEntry(entryId) {
-        console.log("entryId", entryId)
         axios.delete(`/entries/${entryId}`)
             .then(res => {
-                // setEntries(prevEntries => prevEntries.filter(entry => entry.id !== entryId))
-                console.log("data", res.data)
+                setEntries(prevEntries => prevEntries.filter(entry => entry.id !== entryId))
+                axios.get('/entries')
+                    .then(res => setEntries(res.data))
             })
             .catch(err => console.log(err))
     }
