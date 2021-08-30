@@ -6,19 +6,21 @@ const Schema = mongoose.Schema
 const entrySchema = new Schema({
     date: {
         type: Date,
-        required: true
+        // required: true
     },
     location: String,
     entry: {
         type: String,
         // required: true
     },
-    
     prompt: {
         type: String,
         default: ""
     },
-    
+    text: {
+        type: String,
+        default: ""
+    },
     image: String,
     mood: String,
     positive: String,
@@ -27,11 +29,7 @@ const entrySchema = new Schema({
         type: Boolean,
         default: true
     },
-    // isPositive: {
-    //     type: Boolean,
-    //     default: true
-    // }, 
-    // isNegative: {
+    // isMood: {
     //     type: Boolean,
     //     default: true
     // }

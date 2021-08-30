@@ -1,12 +1,33 @@
-import React from "react"
+import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import FilteredEntries from "./FilteredEntries"
-import { useEntries } from "../contexts/userEntryContext"
+import { useEntries } from "../contexts/userEntryContext.js"
 import "../styles.css"
 
-function Home() {
+function Home(props) {
     const {filterEntries, search, setSearch} = useEntries()
+
+    const initHomeInputs = 
+        {
+            text: props.text || ''
+
+        }
+
+    const [homeInputs, setHomeInputs] = useState(initHomeInputs)
+    const { postEntry } = useEntries()
+
+    function handleChange(e) {
+        const { name, value } = e.target
+        setHomeInputs(prevHomeInputs => ({...prevHomeInputs, [name]: value}))
+        console.log("textProps", homeInputs)
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        postEntry(homeInputs)
+        setHomeInputs(initHomeInputs)
+    }
 
     return (
         <>
