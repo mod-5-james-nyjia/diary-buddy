@@ -89,7 +89,8 @@ nav li {
 }
 
 .nav-link,
-.search-button {
+.search-button,
+.sp-submit-btn {
     color: var(--clr-neutral-900);
     text-decoration: none;
     font-size: 1.2rem;
@@ -98,9 +99,17 @@ nav li {
     transition: opacity 150ms ease-in-out;
 }
 
+.sp-submit-btn {
+    color: var(--clr-)
+}
+
 .nav-link:hover,
 .search-button:hover {
     color: #000;
+}
+
+.sp-submit-btn:hover {
+    color: var(--clr-neutral-100);
 }
 
 .nav-toggle {
@@ -154,6 +163,12 @@ nav li {
 .entry {
     color: var(--clr-primary-200);
     margin-top: 3em;
+    min-width: 700px;
+}
+
+.entry > p b {
+    color: var(--clr-primary-200);
+    font-weight: 1000;
 }
 
 /* Non-navbar things */
@@ -167,7 +182,7 @@ nav li {
 
 .content-container {
     background-color:rgba(6, 65, 13, 0.644);
-    width: 50%;
+    width: 70%;
     place-items: center;
     display: grid;
     height: auto;
@@ -192,20 +207,20 @@ hr {
 }
 
 .content::before {
-    height: auto;
+    min-height: 100vh;
     content: '';
     background-image: url('https://picsum.photos/1500/1800');
     background-size: cover;
-    background-blend-mode: multiply;
     position: absolute;
     top: 0px;
-    /* right: 0px; */
+    right: 0px;
     bottom: 0px;
     left: 0px;
     opacity: .75;
 }
 
 .scratch-pad-form {
+    height: auto;
     margin-bottom: 2em;
     display: flex;
     flex-flow: column wrap;
@@ -263,7 +278,7 @@ hr {
 .form-search-bar input[type=text],
 .new-entry-form input[type=text],
 .new-entry-form input[type=date],
-.new-entry-form select {
+.new-entry-form select, option {
     padding: 6px;
     width: 16em;
     margin-top: 0;
@@ -277,7 +292,17 @@ hr {
     box-shadow: 2px 2px 2px 1px var(--clr-neutral-900);
 }
 
-.search-button > * {
+.sp-submit-btn {
+    background: var(--background);
+    color: var(--clr-primary-200);
+    box-shadow: 2px 2px 2px 1px var(--clr-neutral-900);
+    padding-left: .8em;
+    padding-right: .8em;
+    text-shadow: 2px 2px var(--clr-neutral-900);
+}
+
+.search-button > *,
+.sp-submit-btn > * {
     padding: .8em;
     text-decoration: none;
     font-size: 1rem;
@@ -326,17 +351,33 @@ hr {
     padding-left: 0;
 }
 
+.all-entries {
+    list-style: none;
+    background-color: rgba(122, 122, 122, 0.801);
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 0;
+}
+
 .templates-list li > *,
-.search-results li > * {
+.search-results li > *,
+.all-entries li > * {
     color: var(--clr-primary-200);
     text-decoration: none;
 }
+
+
 
 .template-image {
     height: auto;
     width: 400px;
     padding: 20px;
     background-color:rgba(6, 65, 13, 0.644);
+}
+
+.entry-image {
+    max-height: auto;
+    max-width: 900px;
 }
 
 @media screen and (min-width: 800px) {
@@ -371,7 +412,8 @@ hr {
     }
 
     .nav-link,
-    .search-button {
+    .search-button,
+    .sp-submit-btn {
         opacity: 1;
         position: relative;
     }
