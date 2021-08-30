@@ -39,7 +39,7 @@ function TemplateOne(props) {
                         <h4 className='content-h4'>{dailyAffirmation()}</h4>
                     <form onSubmit={handleSubmit} className='new-entry-form'>
                         <label for='date'>Date this entry </label>
-                        <div class='nativeDatePicker'>
+                        <div className='nativeDatePicker'>
                             <input 
                                 type='date' 
                                 id='date' 

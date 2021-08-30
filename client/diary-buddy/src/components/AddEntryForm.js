@@ -12,6 +12,7 @@ function AddEntryForm(props) {
             image: props.image || '',
             mood: props.mood || '',
         }
+        
     const [inputs, setInputs] = useState(initInputs)
     const { postEntry, submitBtnRedirect } = useEntries()
 
