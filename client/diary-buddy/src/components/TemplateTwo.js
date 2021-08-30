@@ -4,7 +4,7 @@ import { useEntries } from "../contexts/userEntryContext"
 import Navbar from "./Navbar"
 
 function TemplateTwo(props) {
-    const {goBack, dailyAffirmation, dailyPrompt} = useContext(TemplateContext)
+    const {goBack, dailyAffirmation, dailyPromptTwo} = useContext(TemplateContext)
 
     // attempt to make this less repetitive
     const initTemplateInputs = 
@@ -15,7 +15,7 @@ function TemplateTwo(props) {
         isEntry: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
-    const { postEntry } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -27,6 +27,7 @@ function TemplateTwo(props) {
         e.preventDefault()
         postEntry(promptInputs)
         setPromptInputs(initTemplateInputs)
+        submitBtnRedirect()
     }
 
     return(
@@ -78,7 +79,7 @@ function TemplateTwo(props) {
                     </select>
                 <br/>
                 <h3>Journal Prompt:</h3>
-                <p>{dailyPrompt()}</p>
+                <p>{dailyPromptTwo()}</p>
                 <textarea
                     name='prompt'
                     className='journal-prompt'

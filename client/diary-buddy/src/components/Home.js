@@ -15,7 +15,7 @@ function Home(props) {
         }
 
     const [homeInputs, setHomeInputs] = useState(initHomeInputs)
-    const { postEntry } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -27,6 +27,7 @@ function Home(props) {
         e.preventDefault()
         postEntry(homeInputs)
         setHomeInputs(initHomeInputs)
+        submitBtnRedirect()
     }
 
     return (

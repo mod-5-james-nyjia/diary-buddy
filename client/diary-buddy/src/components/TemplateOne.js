@@ -4,7 +4,7 @@ import { useEntries } from "../contexts/userEntryContext"
 import Navbar from "./Navbar"
 
 function TemplateOne(props) {
-    const {goBack, dailyAffirmation, dailyPrompt} = useContext(TemplateContext)
+    const {goBack, dailyAffirmation, dailyPromptOne} = useContext(TemplateContext)
 
     // attempt to make this less repetitive
     const initTemplateInputs = 
@@ -13,11 +13,9 @@ function TemplateOne(props) {
         positive: props.positive || '',
         negative: props.negative || '',
         isEntry: false,
-        // isPositive: false,
-        // isNegative: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
-    const { postEntry } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -29,6 +27,7 @@ function TemplateOne(props) {
         e.preventDefault()
         postEntry(promptInputs)
         setPromptInputs(initTemplateInputs)
+        submitBtnRedirect()
     }
 
     return(
@@ -86,7 +85,7 @@ function TemplateOne(props) {
                             <option value='awful'>😢awful</option>
                         </select><br/>
                         <h3 className='content-h3'>Journal Prompt</h3>
-                        <p>{dailyPrompt()}</p>
+                        <p>{dailyPromptOne()}</p>
                         <textarea
                             name='prompt'
                             className='journal-prompt'

@@ -1,9 +1,11 @@
 import React, { useEffect, useState, createContext, useContext } from "react"
+import {useHistory} from "react-router-dom"
 import axios from "axios"
 import Entry from "../components/Entry"
 import "../styles.css"
 
 const EntriesContext = createContext()
+
 
 function EntriesContextProvider(props) {
     const [entries, setEntries] = useState([])
@@ -90,6 +92,13 @@ function EntriesContextProvider(props) {
             <h3>No results</h3>
         </>
 
+    // When entries are submitted, the user will go to the "Your Entries" tab.
+    const history = useHistory()
+
+    function submitBtnRedirect() {
+        history.push('/user-entries')
+    }
+
     return (
         <EntriesContext.Provider value={{
             allEntries,
@@ -102,7 +111,9 @@ function EntriesContextProvider(props) {
             getEntryById,
             editEntry,
             postEntry,
-            deleteEntry
+            deleteEntry,
+            history,
+            submitBtnRedirect,
         }}>{props.children}
         </EntriesContext.Provider>
     )
