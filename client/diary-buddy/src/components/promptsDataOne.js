@@ -1,4 +1,4 @@
-const journalPrompts = [
+const journalPromptsOne = [
     {
       prompts: "What and who are you most grateful for right now?",
       date: 1
@@ -40,7 +40,7 @@ const journalPrompts = [
       date: 10
     },
     {
-      prompts: "What is your favorite memory?",
+      prompts: "How do you shift your mindset if it isn't working for you?",
       date: 11
     },
     {
@@ -56,7 +56,7 @@ const journalPrompts = [
       date: 14
     },
     {
-      prompts: "What goal do you wish to complete this week?",
+      prompts: "What goal do you wish to complete this month?",
       date: 15
     },
     {
@@ -125,4 +125,4 @@ const journalPrompts = [
     },
 ]
   
-  module.exports = journalPrompts
+  module.exports = journalPromptsOne

@@ -1,7 +1,9 @@
 import React, {createContext, useState} from "react"
 import {useHistory} from "react-router-dom"
 import affirmations from "../components/affirmationData.js"
-import journalPrompts from "../components/promptsData.js"
+import journalPromptsOne from "../components/promptsDataOne.js"
+import journalPromptsTwo from "../components/promptsDataTwo.js"
+import journalPromptsThree from "../components/promptsDataThree.js"
 // import { useEntries } from "../contexts/userEntryContext"
 
 const TemplateContext = createContext()
@@ -23,9 +25,19 @@ function TemplateContextProvider(props) {
         )
     }
 
-    function dailyPrompt() {
-        return journalPrompts.map(journal => 
-            journal.date === dayOfMonth ? journal.prompts : null 
+    function dailyPromptOne() {
+        return journalPromptsOne.map(journalOne => 
+            journalOne.date === dayOfMonth ? journalOne.prompts : null 
+        )
+    }
+    function dailyPromptTwo() {
+        return journalPromptsTwo.map(journalTwo => 
+            journalTwo.date === dayOfMonth ? journalTwo.prompts : null 
+        )
+    }
+    function dailyPromptThree() {
+        return journalPromptsThree.map(journalThree => 
+            journalThree.date === dayOfMonth ? journalThree.prompts : null 
         )
     }
     
@@ -37,7 +49,9 @@ function TemplateContextProvider(props) {
             // promptInputs,
             goBack,
             dailyAffirmation,
-            dailyPrompt,
+            dailyPromptOne,
+            dailyPromptTwo,
+            dailyPromptThree
         
         }}>{props.children}
         </TemplateContext.Provider>
