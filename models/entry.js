@@ -29,14 +29,10 @@ const entrySchema = new Schema({
         type: Boolean,
         default: true
     },
-    isMood: {
-        type: Boolean,
-        default: true
-    },
-    isImage: {
-        type: Boolean,
-        default: true
-    }
+    // isMood: {
+    //     type: Boolean,
+    //     default: true
+    // }
 })
 
 module.exports = mongoose.model('Entry', entrySchema)
