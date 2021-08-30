@@ -15,7 +15,7 @@ function TemplateTwo(props) {
         isEntry: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
-    const { postEntry } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -27,6 +27,7 @@ function TemplateTwo(props) {
         e.preventDefault()
         postEntry(promptInputs)
         setPromptInputs(initTemplateInputs)
+        submitBtnRedirect()
     }
 
     return(
