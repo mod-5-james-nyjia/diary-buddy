@@ -24,11 +24,11 @@ function Entry(props) {
         <div className="entry">
             <p><b>Date:</b> {date}</p>
             <p><b>Location:</b> {location}</p>
-            <p>Image: {image}</p>
-            <p>Mood: {mood}</p>
-            <p>{!isEntry ? <>Prompt: {prompt}</> : <>Entry: {entry}</>}</p>
-            <p>Positives: {positive}</p>
-            <p>Negatives: {negative}</p>
+            <img src={image} className='entry-image'></img>
+            <p><b>Mood: </b> {mood}</p>
+            <p>{!isEntry ? <>Prompt: {prompt}</> : <><b>Entry:</b> {entry}</>}</p>
+            <p><b>Positives:</b> {positive}</p>
+            <p><b>Negatives:</b> {negative}</p>
             {/* <p>{isNegative ? <>Negatives: {negative}</> : <></>}</p>
             <p>{isPositive ? <>Positives: {positive}</> : <></>}</p> */}
         

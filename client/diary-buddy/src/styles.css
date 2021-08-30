@@ -156,6 +156,11 @@ nav li {
     margin-top: 3em;
 }
 
+.entry > p b {
+    color: var(--clr-primary-200);
+    font-weight: 1000;
+}
+
 /* Non-navbar things */
 .content {
     position: relative;
@@ -167,7 +172,7 @@ nav li {
 
 .content-container {
     background-color:rgba(6, 65, 13, 0.644);
-    width: 50%;
+    width: 70%;
     place-items: center;
     display: grid;
     height: auto;
@@ -192,14 +197,13 @@ hr {
 }
 
 .content::before {
-    height: auto;
+    min-height: 100vh;
     content: '';
     background-image: url('https://picsum.photos/1500/1800');
     background-size: cover;
-    background-blend-mode: multiply;
     position: absolute;
     top: 0px;
-    /* right: 0px; */
+    right: 0px;
     bottom: 0px;
     left: 0px;
     opacity: .75;
@@ -263,7 +267,7 @@ hr {
 .form-search-bar input[type=text],
 .new-entry-form input[type=text],
 .new-entry-form input[type=date],
-.new-entry-form select {
+.new-entry-form select, option {
     padding: 6px;
     width: 16em;
     margin-top: 0;
@@ -326,17 +330,33 @@ hr {
     padding-left: 0;
 }
 
+.all-entries {
+    list-style: none;
+    background-color: rgba(122, 122, 122, 0.801);
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 0;
+}
+
 .templates-list li > *,
-.search-results li > * {
+.search-results li > *,
+.all-entries li > * {
     color: var(--clr-primary-200);
     text-decoration: none;
 }
+
+
 
 .template-image {
     height: auto;
     width: 400px;
     padding: 20px;
     background-color:rgba(6, 65, 13, 0.644);
+}
+
+.entry-image {
+    max-height: auto;
+    max-width: 900px;
 }
 
 @media screen and (min-width: 800px) {
