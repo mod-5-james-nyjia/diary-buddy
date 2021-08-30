@@ -29,7 +29,7 @@ function EntriesContextProvider(props) {
     }, [])
 
     function postEntry(newEntry) {
-        console.log("new entry", newEntry)
+        console.log("post new entry", newEntry)
         axios.post("/entries", newEntry)
             .then(res => {
                 setEntries(prevEntries => [...prevEntries, res.data])
@@ -50,7 +50,7 @@ function EntriesContextProvider(props) {
     function editEntry(updates, entryId) {
         axios.put(`/entries/${entryId}`, updates)
             .then(res => {
-                setEntries(prevEntries => prevEntries.map(entry => entry._id !== entry.Id ? entry : res.data))
+                setEntries(prevEntries => prevEntries.map(entry => entry._id !== entryId ? entry : res.data))
             })
             .catch(err => console.log(err))
     }

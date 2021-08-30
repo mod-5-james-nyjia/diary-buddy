@@ -9,7 +9,7 @@ function ScratchPad(props) {
         }
 
     const [inputs, setInputs] = useState(initInputs)
-    const { postEntry } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -21,6 +21,7 @@ function ScratchPad(props) {
         e.preventDefault()
         postEntry(inputs)
         setInputs(initInputs)
+        submitBtnRedirect()
     }
 
     return (

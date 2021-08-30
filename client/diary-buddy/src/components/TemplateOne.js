@@ -6,7 +6,6 @@ import Navbar from "./Navbar"
 function TemplateOne(props) {
     const {goBack, dailyAffirmation, dailyPromptOne} = useContext(TemplateContext)
 
-    // attempt to make this less repetitive
     const initTemplateInputs = 
     {
         prompt: props.prompt || '',
