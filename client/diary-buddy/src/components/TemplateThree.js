@@ -4,7 +4,7 @@ import { useEntries } from "../contexts/userEntryContext"
 import Navbar from "./Navbar"
 
 function TemplateThree(props) {
-    const {goBack, dailyAffirmation, dailyPromptThree} = useContext(TemplateContext)
+    const {goBack, dailyAffirmation, dailyPromptThree, } = useContext(TemplateContext)
 
     // attempt to make this less repetitive
     const initTemplateInputs = 
@@ -15,7 +15,7 @@ function TemplateThree(props) {
         isEntry: false
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
-    const { postEntry } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -27,6 +27,7 @@ function TemplateThree(props) {
         e.preventDefault()
         postEntry(promptInputs)
         setPromptInputs(initTemplateInputs)
+        submitBtnRedirect()
     }
 
     return(

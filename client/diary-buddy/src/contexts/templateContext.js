@@ -1,15 +1,15 @@
 import React, {createContext, useState} from "react"
-import {useHistory} from "react-router-dom"
 import affirmations from "../components/affirmationData.js"
 import journalPromptsOne from "../components/promptsDataOne.js"
 import journalPromptsTwo from "../components/promptsDataTwo.js"
 import journalPromptsThree from "../components/promptsDataThree.js"
-// import { useEntries } from "../contexts/userEntryContext"
+import { useEntries } from "../contexts/userEntryContext"
 
 const TemplateContext = createContext()
 
+
 function TemplateContextProvider(props) {
-    const history = useHistory()
+    const {history} = useEntries()
     const dateForToday = new Date();
     const dayOfMonth = dateForToday.getDate();
 
