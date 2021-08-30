@@ -4,7 +4,7 @@ import { useEntries } from "../contexts/userEntryContext"
 import Navbar from "./Navbar"
 
 function TemplateThree(props) {
-    const {goBack, dailyAffirmation, dailyPrompt} = useContext(TemplateContext)
+    const {goBack, dailyAffirmation, dailyPromptThree} = useContext(TemplateContext)
 
     // attempt to make this less repetitive
     const initTemplateInputs = 
@@ -78,7 +78,7 @@ function TemplateThree(props) {
                     </select>
                 <br/>
                 <h3>Journal Prompt:</h3>
-                <p>{dailyPrompt()}</p>
+                <p>{dailyPromptThree()}</p>
                 <textarea
                     name='prompt'
                     className='journal-prompt'
