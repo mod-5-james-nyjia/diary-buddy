@@ -9,9 +9,11 @@ function FilteredEntries() {
     return (
         <>
             <Navbar />
-            <div>
-                <h1>Search results</h1>
-                <ul>{searchResults}</ul>
+            <div className='content'>
+                <div className='content-container'>
+                    <h1 className='content-h1'>Search results</h1>
+                    <ul className='search-results'>{searchResults}</ul>
+                </div>
             </div>
         </>
     )
