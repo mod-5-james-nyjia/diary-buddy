@@ -15,7 +15,7 @@ function Entry(props) {
     }
     console.log(props,"props")
     // console.log(prompt, "prompt")
-    // console.log(entry, "entry")
+    console.log(entry, "entry")
     console.log(positive, "positive")
     console.log(negative, "negative")
     console.log(date)

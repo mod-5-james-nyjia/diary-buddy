@@ -3,6 +3,8 @@ import Navbar from "./Navbar"
 import "../styles.css"
 import { Link } from "react-router-dom"
 import templateOne from "../assets/TemplateOne.png"
+import templateTwo from "../assets/TemplateTwo.png"
+import templateThree from "../assets/TemplateThree.png"
 
 function Templates() {
     return (
@@ -28,7 +30,7 @@ function Templates() {
                             Template Two <br/>
                                 <img 
                                     className='template-image'
-                                    src={templateOne} 
+                                    src={templateTwo} 
                                     alt='TemplateTwo'
                                 ></img>
                             </Link>
@@ -38,7 +40,7 @@ function Templates() {
                             Template Three <br/>
                                 <img 
                                     className='template-image'
-                                    src={templateOne} 
+                                    src={templateThree} 
                                     alt='TemplateThree'
                                 ></img>
                             </Link>

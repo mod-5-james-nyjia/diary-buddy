@@ -6,7 +6,6 @@ import "../styles.css"
 
 const EntriesContext = createContext()
 
-
 function EntriesContextProvider(props) {
     const [entries, setEntries] = useState([])
     const [search, setSearch] = useState('')
