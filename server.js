@@ -10,8 +10,6 @@ app.use(morgan('dev'))
 // Connect to DB //
 
 mongoose.connect('mongodb://localhost:27017/diary-db',
-// mongoose.connect(
-//     "mongodb://Nyjiakscott97:TJWUa2nNlY4ypeBt@cluster0-shard-00-00.tvlbm.mongodb.net:27017,cluster0-shard-00-01.tvlbm.mongodb.net:27017,cluster0-shard-00-02.tvlbm.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-142zxk-shard-0&authSource=admin&retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

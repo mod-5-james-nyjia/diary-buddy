@@ -3,7 +3,7 @@ import affirmations from "../components/affirmationData.js"
 import journalPromptsOne from "../components/promptsDataOne.js"
 import journalPromptsTwo from "../components/promptsDataTwo.js"
 import journalPromptsThree from "../components/promptsDataThree.js"
-import { useEntries } from "../contexts/userEntryContext"
+import { useEntries } from "../contexts/userEntryContext.js"
 
 const TemplateContext = createContext()
 
