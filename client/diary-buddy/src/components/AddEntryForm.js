@@ -14,7 +14,7 @@ function AddEntryForm(props) {
         }
         
     const [inputs, setInputs] = useState(initInputs)
-    const { postEntry, editEntry, submitBtnRedirect } = useEntries()
+    const { postEntry, submitBtnRedirect } = useEntries()
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -24,8 +24,7 @@ function AddEntryForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        editEntry(inputs, props._id)
-        console.log(inputs, "Inputs")
+        postEntry(inputs)
         setInputs(initInputs)
         submitBtnRedirect()
     }
