@@ -5,7 +5,7 @@ import { useEntries } from "../contexts/userEntryContext"
 
 function Entry(props) {
     const {date, location, entry, isEntry, image, isImage, mood, _id, prompt, positive, negative, text } = props
-    const {deleteEntry} = useEntries()
+    const {deleteEntry, editEntry} = useEntries()
     const [editToggle, setEditToggle] = useState(false)
 
     // positive / negative display on the entries page and the submit button on the home page,
@@ -23,7 +23,7 @@ function Entry(props) {
     
     return(
         <div className="entry">
-            <div className='entry-image-container'>{image === '' ? <>{null}</> : <img src={image} className='entry-image'></img>}</div>
+            <div className='entry-image-container'>{image === '' ? <>{null}</> : <img src={image} alt='img' className='entry-image'></img>}</div>
             <p>{date === null ? <>{null}</> : <><b>Date:</b> {date}</> }</p>
             {/* date is a string */}
             <p>{location === '' ? null : location === undefined ? null : <><b>Location:</b> {location}</>}</p>
@@ -39,6 +39,7 @@ function Entry(props) {
             <div className='entry-btn-container'>
                 <button className="delete-btn" onClick={() => deleteEntry(_id)}>              
                     Delete
+                    {/* {console.log(deleteEntry(_id), "delete")} */}
                 </button> 
                 <button className="edit-btn" onClick={() => toggle()}>
                     Edit
@@ -56,8 +57,9 @@ function Entry(props) {
                         mood={mood}
                         _id={_id}
                         btnText="Submit Edit"
-                        submit={props.editEntry}
+                        submit={editEntry}
                     /> 
+                    <button onClick={() => console.log(editEntry(), "EDit")}>Submit Edit</button>
                     <button onClick={() => toggle()}>Close</button>
                 </>
                 :  
