@@ -9,10 +9,9 @@ function TemplateThree(props) {
     // attempt to make this less repetitive
     const initTemplateInputs = 
     {
-        prompt: props.prompt || '',
+        entry: props.entry || '',
         positive: props.positive || '',
-        negative: props.negative || '',
-        isEntry: false
+        negative: props.negative || ''
     }
     const [promptInputs, setPromptInputs] = useState(initTemplateInputs)
     const { postEntry, submitBtnRedirect } = useEntries()
@@ -87,7 +86,7 @@ function TemplateThree(props) {
                         <h3 className='content-h3'>Journal Prompt</h3>
                         <p>{dailyPromptThree()}</p>
                         <textarea
-                            name='prompt'
+                            name='entry'
                             className='journal-prompt'
                             rows='10'
                             cols='40'
