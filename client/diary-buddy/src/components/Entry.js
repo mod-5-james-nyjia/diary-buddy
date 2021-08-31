@@ -16,6 +16,7 @@ function Entry(props) {
 
     return(
         <div className="entry">
+            <div className='entry-image-container'>{image === '' ? <>{null}</> : <img src={image} alt='img' className='entry-image'></img>}</div>
             <p>{date === null ? <>{null}</> : <><b>Date:</b> {date}</> }</p>
             <p>{{location}.length > 0 ? <><b>Location:</b> {location}</> : <>{null}</>}</p>
             <div>{image === '' ? <>{null}</> : <img src={image} alt="img" className='entry-image'></img>}</div>
@@ -35,7 +36,6 @@ function Entry(props) {
 
             {editToggle === true ?
                 <>
-                {/* return edit form instead */}
                     <AddEntryForm 
                         date={date}
                         location={location}
@@ -46,11 +46,6 @@ function Entry(props) {
                         // btnText="Submit Edit"
                         submit={editEntry}
                     />
-                    {/* i know I'm getting the correct id. ID is not the problem. */}
-                    {/* inputs are working as they should */}
-                    {/* it's also not the editEntry function */}
-                    {/* handleChange is fine as well */}
-                    {/* seems to be saved in state but is not being reflected on the dom */}
                     <button onClick={() => toggle()}>Close</button>
                 </>
                 :  
