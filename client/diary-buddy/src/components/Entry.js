@@ -23,25 +23,28 @@ function Entry(props) {
     
     return(
         <div className="entry">
+            <div className='entry-image-container'>{image === '' ? <>{null}</> : <img src={image} alt='img' className='entry-image'></img>}</div>
             <p>{date === null ? <>{null}</> : <><b>Date:</b> {date}</> }</p>
             {/* date is a string */}
-            <p>{{location}.length > 0 ? <><b>Location:</b> {location}</> : <>{null}</>}</p>
+            <p>{location === '' ? null : location === undefined ? null : <><b>Location:</b> {location}</>}</p>
             {/* location is a string and is false*/}
-            <div>{image === '' ? <>{null}</> : <img src={image} alt="img" className='entry-image'></img>}</div>
             <p>{mood === '' ? null : mood === undefined ? null : <><b>Mood</b>: {mood}</> }</p>
             <p>{!isEntry ? <>Prompt: {prompt}</> : <><b>Entry:</b> {entry}</>}</p>
-            <p>{{positive}.length > 0 ? <><b>Positives</b>: {positive}</> : <>{null}</>}</p>
-            <p>{{negative}.length > 0 ? <><b>Negatives</b>: {negative}</> : <>{null}</>}</p>            
-
+            <p>{positive === '' ? null : positive === undefined ? null : <><b>Positives</b>: {positive}</>}</p>
+            <p>{negative === '' ? null : negative === undefined ? null : <><b>Negatives</b>: {negative}</>}</p>
+            
             {/* <p>{text === "" ? null : <>Text: {text}</>}</p> */}
         
-            <button className="delete-btn" onClick={() => deleteEntry(_id)}>              
-                Delete
-                {/* {console.log(deleteEntry(_id), "delete")} */}
-            </button> 
-            <button className="edit-btn" onClick={() => toggle()}>
-                Edit
-            </button>
+            {/* <button className="delete-btn" onClick={() => props.deleteEntry(_id)}> */}
+            <div className='entry-btn-container'>
+                <button className="delete-btn" onClick={() => deleteEntry(_id)}>              
+                    Delete
+                    {/* {console.log(deleteEntry(_id), "delete")} */}
+                </button> 
+                <button className="edit-btn" onClick={() => toggle()}>
+                    Edit
+                </button>
+            </div>
             <hr/>
 
             {editToggle === true ?

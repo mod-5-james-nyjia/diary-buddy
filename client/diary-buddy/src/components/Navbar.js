@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import UserEntries from "./UserEntries"
 import { EntriesContext } from "../contexts/userEntryContext"
+import Logo from "../assets/Logo.png"
 import "../styles.css"
 
 function Navbar() {
@@ -9,12 +9,14 @@ function Navbar() {
 
     return (
         <header>
-            <h1 class='logo'>Logo</h1>
+            <div className='logo-container'>
+                <img className='logo' src={Logo}></img>
+            </div>
             <input type='checkbox' className='nav-toggle' id='nav-toggle'></input>
             <nav>
                 <ul className='nav-ul'>
                     <li className='form-search-bar'>
-                        <form className='text-center'>
+                        <form>
                             <input
                                 className='search-bar'
                                 type='text'
