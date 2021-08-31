@@ -23,7 +23,12 @@ function Entry(props) {
     
     return(
         <div className="entry">
-            <div className='entry-image-container'>{image === '' ? <>{null}</> : <img src={image} alt='img' className='entry-image'></img>}</div>
+            <div className='entry-image-container'>
+                {image === '' ? <>{null}</> 
+                : 
+                <img src={image} alt='img' className='entry-image'></img>
+                }
+            </div>
             <p>{date === null ? <>{null}</> : <><b>Date:</b> {date}</> }</p>
             {/* date is a string */}
             <p>{location === '' ? null : location === undefined ? null : <><b>Location:</b> {location}</>}</p>

@@ -193,7 +193,7 @@ nav li {
 
 .content-container {
     background-color:rgba(6, 65, 13, 0.644);
-    width: 50em;
+    max-width: 50em;
     place-items: center;
     display: grid;
     height: auto;
@@ -384,8 +384,6 @@ hr {
     color: var(--clr-primary-200);
     text-decoration: none;
 }
-
-
 
 .template-image {
     height: auto;
