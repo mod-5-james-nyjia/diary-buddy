@@ -13,15 +13,23 @@ const entrySchema = new Schema({
         type: String,
         // required: true
     },
-    // prompt: {
-    //     type: String,
-    //     default: ""
-    // },
+    prompt: {
+        type: String,
+        default: ""
+    },
+    text: {
+        type: String,
+        default: ""
+    },
     image: String,
     mood: String,
     positive: String,
     negative: String,
-    // isEntry: {
+    isEntry: {
+        type: Boolean,
+        default: true
+    },
+    // isMood: {
     //     type: Boolean,
     //     default: true
     // }
