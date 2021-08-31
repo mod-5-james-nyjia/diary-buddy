@@ -16,11 +16,15 @@ function Entry(props) {
     
     return(
         <div className="entry">
-            <div className='entry-image-container'>{image === '' ? <>{null}</> : <img src={image} alt='img' className='entry-image'></img>}</div>
+            <div className='entry-image-container'>
+                {image === '' ? <>{null}</> 
+                : 
+                <img src={image} alt='img' className='entry-image'></img>
+                }
+            </div>
             <p>{date === null ? <>{null}</> : <><b>Date:</b> {date}</> }</p>
             {/* date is a string */}
             <p>{{location}.length > 0 ? <><b>Location:</b> {location}</> : <>{null}</>}</p>
-            <div>{image === '' ? <>{null}</> : <img src={image} alt="img" className='entry-image'></img>}</div>
             <p>{mood === '' ? null : mood === undefined ? null : <><b>Mood</b>: {mood}</> }</p>
             {/* <p>{!isEntry ? <>Prompt: {prompt}</> : <><b>Entry:</b> {entry}</>}</p> */}
             <p>Entry: {entry}</p>
@@ -44,6 +48,8 @@ function Entry(props) {
                     <AddEntryForm 
                         date={date}
                         location={location}
+                        positive={positive}
+                        negative={negative}
                         entry={entry}
                         image={image}
                         mood={mood}
